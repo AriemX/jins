@@ -1,29 +1,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <properties>
-    <module.name>jins-wsdl</module.name>
-  </properties>
-  
-  <parent>
-  <groupId>${project.groupId}</groupId>
-  <artifactId>${project.name}</artifactId>
-  <version>${project.version}</version>
-  </parent>
-  
-  <groupId>${project.groupId}</groupId>
-  <artifactId>${module.name}</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>war</packaging>
+	<properties>
+		<module.name>jins-wsdl</module.name>
+	</properties>
 
-  <name>${module.name}</name>
-  <url>${project.url}</url>
+	<parent>
+		<groupId>${project.groupId}</groupId>
+		<artifactId>${project.name}</artifactId>
+		<version>${project.version}</version>
+	</parent>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-    </dependency>
-  </dependencies>
+	<groupId>${project.groupId}</groupId>
+	<artifactId>${module.name}</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>${module.name}</name>
+	<url>${project.url}</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+	</dependencies>
 </project>

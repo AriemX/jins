@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:char="http://www.reticulum.fr/jins/web/character/"
+	targetNamespace="http://www.reticulum.fr/jins/web/character/">
+
+
+	<!-- 
+		Definition d'un personnage
+	 -->
+	<complexType name="Personnage">
+		<annotation>
+			<documentation>
+				Definit un personnage
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="nom" type="char:Nom" minOccurs="1" maxOccurs="1"/>
+			<element name="superieur" type="char:Nom" minOccurs="1" maxOccurs="1"/>
+			<element name="grade" type="integer" minOccurs="1" maxOccurs="1"/>
+			<element name="modifPP" type="positiveInteger" minOccurs="1" maxOccurs="1"/>
+			<element name="PA" type="integer" minOccurs="1" maxOccurs="1"/>
+			<element name="caracteristiques" type="char:Caracteristiques" minOccurs="1" maxOccurs="1"/>
+			<element name="talentsPrincipaux" type="char:Talents" minOccurs="1" maxOccurs="1"/>
+			<element name="talentsSecondaires" type="char:Talents" minOccurs="1" maxOccurs="1"/>
+			<element name="pouvoirs" type="char:Pouvoirs" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+		
+	
+	</complexType>
+
+	<complexType name="Pouvoirs">
+		<annotation>
+			<documentation>
+				Liste les pouvoirs d'un personnage
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="pouvoir" type="char:Pouvoir" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="Talents">
+		<annotation>
+			<documentation>
+				Liste les talents d'un personnage
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="talent" type="char:Talent" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="Caracteristiques">
+		<annotation>
+			<documentation>
+				Les 5 caracteristiques d'un personnage sont :
+				Force, Agilite, Perception, Presence, Chance/Foi
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="caracteristique" type="char:Caracteristique" minOccurs="5" minOccurs="5"/>
+		</sequence>
+	</complexType>
+
+	<!-- 
+	Elements definissant un personnage
+	 -->
+	<complexType name="Caracteristique">
+		<annotation>
+			<documentation>
+				definit une caracteristique d'un personnage
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="nom" type="char:Nom" minOccurs="1" maxOccurs="1"/>
+			<element name="niveau" type="char:Niveau" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="Talent">
+		<annotation>
+			<documentation>
+				Definit un talent d'un personnage
+				un talent peut etre inne et avoir une specialisation
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="inne" type="boolean" minOccurs="1" maxOccurs="1"/>
+			<element name="nom" type="char:Nom" minOccurs="1" maxOccurs="1"/>
+			<element name="niveau" type="char:Niveau" minOccurs="1" maxOccurs="1"/>
+			<element name="specialisation" type="char:Specialisation" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="Specialisation">
+		<annotation>
+			<documentation>
+				Definit la specialisation d'un talent (si besoin)
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="nom" type="char:Nom" minOccurs="1" maxOccurs="1"/>
+			<element name="niveau" type="char:Niveau" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="Pouvoir">
+		<sequence>
+			<element name="nom" type="char:Nom" minOccurs="1" maxOccurs="1"/>
+			<element name="niveau" type="char:Niveau" minOccurs="1" maxOccurs="1"/>
+			<element name="coutActivation" type="positiveInteger" maxOccurs="1"/>
+			<element name="uniteActivation" type="string" maxOccurs="1"/>
+			<element name="coutRang" type="positiveInteger" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<!--
+	Elements de base
+	-->
+
+	<simpleType name="Niveau">
+		<annotation>
+			<documentation>
+				Definit le niveau de maitrise d'un personnage dans un
+				domaine
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern value="[0-9]+[+]?|invariable" />
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="Nom">
+		<annotation>
+			<documentation>
+				Nom d'un element, personnage etc ...
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<minLength value="1" />
+		</restriction>
+	</simpleType>
+	
+
+</schema>
