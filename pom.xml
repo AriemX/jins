@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<project.version>1.0-SNAPSHOT</project.version>
+	<project.groupId>fr.reticulum</project.groupId>
+	<project.url>http://www.reticulum.fr/jins</project.url>
+	<project.name>jins</project.name>
+  </properties>
+  
+  <licenses>
+	<license>
+		<name>Apache 2</name>
+		<url>http://apache.org/licences/LICENSE-2.0.txt</url>
+		<distribution>repo</distribution>
+		<comments>Apache License V2.0</comments>
+	</license>
+  </licenses>
+  
+  <organization>
+	<name>Reticulum</name>
+	<url>http://www.reticulum.fr</url>
+  </organization>
+  
+  <developers>
+  <developer>
+  <id>AriemX</id>
+  <name>Guillaume CLAUDE</name>
+  <email>guillaume.jf.claud@live.fr</email>
+  <url>http://www.reticulum.fr</url>
+  <organization>Reticulum</organization>
+  <roles>
+  <role>developper</role>
+  </roles>
+  <timezone>+1</timezone>
+  </developer>
+  </developers>
+  
+  <name>${project.name}</name>
+  <url>${project.url}</url>
+  
+  <groupId>${project.groupId}</groupId>
+  <artifactId>${project.name}</artifactId>
+  <version>${project.version}</version>
+  <packaging>pom</packaging>
+
+  <dependencyManagement>
+	<dependencies>
+		<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.10</version>
+		<scope>test</scope>
+		</dependency>
+	</dependencies>
+  </dependencyManagement>
+  
+  <build>
+    <pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+		<version>2.5.1</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+    </plugins>
+    </pluginManagement>
+  </build>
+  
+  <modules>
+	<module>${project.name}-core</module>
+	<module>${project.name}-dao</module>
+	<module>${project.name}-web</module>
+	<module>${project.name}-wsdl</module>
+  </modules>
+  
+</project>
